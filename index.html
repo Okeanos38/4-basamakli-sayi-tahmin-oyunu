@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4 Basamaklı Sayı Tahmin Oyunu - Html5</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#603cba">
     <meta name="theme-color" content="#ffffff">
     <!-- Font -->
@@ -29,9 +29,10 @@
         <h1>4 Basamaklı Sayı Tahmin Oyunu</h1>
         <p>Bir sayı seçin ve 4 basamaklı bir sayı tahmin edin.</p>
         <input type="text" id="guess" placeholder="Tahmininizi Girin" maxlength="4">
-        <button onclick="checkGuess()">Tahmin Et</button>
+        <button id="check" onclick="checkGuess()">Tahmin Et</button>
         <button onclick="newNumber()">Yeni Sayı</button>
         <p id="result"></p>
+        <ol id="logList"></ol>
     </div>
     <div class="developer hidden"><!--Geliştirici Seçenekleri Hep Açık kalsın istiyorsanız hidden classını silin. Örn <div class="developer">-->
         <span></span>
@@ -50,7 +51,7 @@
     <footer>
         Kodlayan : Volkan Korkmaz
     </footer>
-    <script src="/app.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 </html>

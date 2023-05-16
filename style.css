@@ -51,7 +51,7 @@ body {
 }
 
 .preloader p {
-    font-size: 50px;
+    font-size: clamp(32px, 3vw, 50px);
     font-weight: bold;
     margin-top: 20px;
     color: white;
@@ -60,16 +60,7 @@ body {
 }
 
 .preloader p span {
-    font-size: 80px;
-}
-
-.loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #3498db;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    animation: spin 5s ease-in-out;
+    font-size: clamp(44px, 3vw, 80px);
 }
 
 @keyframes spin {
@@ -88,7 +79,7 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 80px auto;
     padding: 30px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -96,8 +87,15 @@ body {
     text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 80px 15px;
+    }
+}
+
 h1 {
-    font-size: 32px;
+    font-size: clamp(24px, 4vw, 32px);
     text-align: center;
     color: #333;
     margin: 0px;
@@ -105,7 +103,7 @@ h1 {
 }
 
 p {
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     color: #666;
     font-weight: 400;
 }
@@ -134,16 +132,16 @@ button:hover {
     background-color: #24253a;
 }
 
-input[type="text"],
+input,
 button {
-    font-size: 20px;
+    font-size: clamp(14px, 3vw, 20px);
     padding: 10px;
     margin: 10px;
     outline: none;
     transition: all .3s ease-in-out;
 }
 
-input{
+input {
     border-radius: 5px;
 }
 
@@ -159,12 +157,20 @@ button:hover {
     opacity: 0.8;
 }
 
+button:disabled,
+button[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+    pointer-events: none;
+}
+
 p#result {
-    font-size: 24px;
+    font-size: clamp(14px, 3vw, 24px);
     font-weight: bold;
     margin-top: 20px;
 }
-.developer{
+
+.developer {
     width: 100%;
     height: 50px;
     background-color: #323448;
@@ -174,10 +180,12 @@ p#result {
     transition: all .4s cubic-bezier(0.23, 1, 0.320, 1);
     z-index: 9;
 }
-.developer.hidden{
+
+.developer.hidden {
     transform: translateY(-50px);
 }
-.developer svg{
+
+.developer svg {
     width: 25px;
     height: 25px;
     position: absolute;
@@ -185,13 +193,15 @@ p#result {
     top: 10px;
     cursor: pointer;
 }
-.developer span{
+
+.developer span {
     height: 100%;
     display: flex;
     align-items: center;
     margin-left: 30px;
     color: white;
 }
+
 .developerOpen {
     position: absolute;
     top: 10px;
@@ -199,9 +209,28 @@ p#result {
     color: darkblue;
     cursor: pointer;
 }
+
 footer {
     position: fixed;
     bottom: 20px;
     right: 30px;
     font-weight: 700;
+}
+
+ol {
+    text-align: left;
+    font-size: clamp(14px, 3vw, 17px);
+    padding: 0 13px;
+    counter-reset: list;
+}
+
+ol li {
+    text-decoration: none;
+    list-style: none;
+    padding: 2px 0;
+}
+
+ol>li:before {
+    content: counter(list) ") ";
+    counter-increment: list;
 }
